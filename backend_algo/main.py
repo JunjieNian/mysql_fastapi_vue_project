@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 import schemas
 import requests
+import numpy as np
+import vector_store
+import reranker
 
 
 app = FastAPI()
@@ -36,7 +39,7 @@ async def chat_stream(conversation: schemas.Conversation):
                     break
                 # print(json.loads(line))
                 yield raw_line + b'\n'
-    
+
     return StreamingResponse(generator())
 
 
@@ -48,3 +51,67 @@ async def chat(conversation: schemas.Conversation):
         'messages': [m.model_dump() for m in conversation.messages],
     }, stream=False, timeout=60)
     return resp.json()
+
+
+@app.post("/search", response_model=schemas.SearchResponse)
+async def search(req: schemas.SearchRequest):
+    """两阶段检索：ChromaDB 召回 → BGE-Reranker 精排"""
+    # 阶段1：向量召回
+    ids, documents = vector_store.search(req.query, top_k=req.top_k)
+    if not ids:
+        return schemas.SearchResponse(results=[])
+
+    # 阶段2：精排
+    rerank_results = reranker.rerank(req.query, documents, top_n=len(documents))
+
+    results = []
+    for r in rerank_results:
+        idx = r["index"]
+        paper_id = int(ids[idx])
+        score = r.get("relevance_score", 0.0)
+        results.append(schemas.SearchResult(paper_id=paper_id, score=score))
+
+    return schemas.SearchResponse(results=results)
+
+
+@app.post("/recommend", response_model=schemas.RecommendResponse)
+async def recommend(req: schemas.RecommendRequest):
+    """基于用户点击历史的推荐：质心近邻搜索"""
+    if not req.clicked_paper_ids:
+        return schemas.RecommendResponse(paper_ids=[])
+
+    clicked_str_ids = [str(pid) for pid in req.clicked_paper_ids]
+
+    # 获取已点击论文的 embedding
+    embeddings = vector_store.get_embeddings_by_ids(clicked_str_ids)
+    if not embeddings:
+        return schemas.RecommendResponse(paper_ids=[])
+
+    # 计算质心
+    centroid = np.mean(np.array(embeddings), axis=0).tolist()
+
+    # 用质心向量进行近邻搜索
+    collection = vector_store.get_collection()
+    results = collection.query(
+        query_embeddings=[centroid],
+        n_results=req.top_k + len(req.clicked_paper_ids),
+    )
+
+    # 排除已点击的论文
+    clicked_set = set(clicked_str_ids)
+    paper_ids = []
+    for pid in results["ids"][0]:
+        if pid not in clicked_set:
+            paper_ids.append(int(pid))
+        if len(paper_ids) >= req.top_k:
+            break
+
+    return schemas.RecommendResponse(paper_ids=paper_ids)
+
+
+@app.post("/index", response_model=schemas.IndexResponse)
+async def index_papers(req: schemas.IndexRequest):
+    """将论文批量索引到 ChromaDB"""
+    papers = [p.model_dump() for p in req.papers]
+    count = vector_store.index_papers(papers)
+    return schemas.IndexResponse(indexed_count=count)

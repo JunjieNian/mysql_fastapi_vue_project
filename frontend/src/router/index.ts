@@ -8,6 +8,9 @@ import Profile from "@/components/Profile.vue";
 import AddUser from "@/components/AddUser.vue";
 import Chat from "@/components/Chat.vue";
 import Register from "@/pages/Register.vue";
+import PaperSearch from "@/components/PaperSearch.vue";
+import PaperDetail from "@/components/PaperDetail.vue";
+import PaperRecommend from "@/components/PaperRecommend.vue";
 
 const routes =
     [
@@ -48,6 +51,22 @@ const routes =
                 {
                     path: 'chat',
                     component: Chat,
+                },
+                {
+                    path: 'paperSearch',
+                    name: 'PaperSearch',
+                    component: PaperSearch,
+                },
+                {
+                    path: 'paperDetail/:paperId',
+                    name: 'PaperDetail',
+                    component: PaperDetail,
+                    props: true,
+                },
+                {
+                    path: 'paperRecommend',
+                    name: 'PaperRecommend',
+                    component: PaperRecommend,
                 },
             ]
 

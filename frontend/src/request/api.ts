@@ -83,3 +83,66 @@ export const GetUserInfoList = (params: { skip: number, limit: number }): Promis
 
 export const ChatWithLLM = (data: LLMRequest): Promise<LLMResponse> =>
     instance.post(`/api/chat`, data);
+
+// ---- Paper APIs ----
+
+interface PaperBrief {
+    id: number
+    title: string
+    authors: string
+    venue: string
+    year: number
+    keywords: string
+}
+
+interface PaperDetail {
+    id: number
+    title: string
+    abstract: string
+    authors: string
+    venue: string
+    year: number
+    keywords: string
+    url: string
+    created_at: string | null
+}
+
+interface SearchReq {
+    query: string
+    page: number
+    page_size: number
+}
+
+interface SearchRes {
+    total: number
+    papers: PaperBrief[]
+}
+
+interface RecommendRes {
+    papers: PaperBrief[]
+}
+
+interface SearchHistoryItem {
+    id: number
+    query: string
+    searched_at: string | null
+}
+
+interface SearchHistoryRes {
+    items: SearchHistoryItem[]
+}
+
+export const SearchPapers = (data: SearchReq): Promise<SearchRes> =>
+    instance.post(`/api/search`, data);
+
+export const GetPaperDetail = (paperId: number): Promise<PaperDetail> =>
+    instance.get(`/api/papers/${paperId}`);
+
+export const RecordClick = (paperId: number): Promise<any> =>
+    instance.post(`/api/click`, { paper_id: paperId });
+
+export const GetRecommendations = (): Promise<RecommendRes> =>
+    instance.get(`/api/recommend`);
+
+export const GetSearchHistory = (): Promise<SearchHistoryRes> =>
+    instance.get(`/api/search/history`);

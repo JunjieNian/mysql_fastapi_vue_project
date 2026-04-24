@@ -1,0 +1,1082 @@
+[
+  {
+    "title": "Adaptive Query Processing in Modern Analytical Databases",
+    "abstract": "Modern analytical workloads demand query engines that can adapt to runtime conditions. We present an adaptive query processing framework that dynamically adjusts execution plans based on intermediate result statistics. Our approach reduces end-to-end query latency by up to 3.2x on TPC-H benchmarks compared to static optimization.",
+    "authors": "Michael Stonebraker, Andrew Pavlo, Lei Cao",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "query optimization, adaptive processing, analytical databases",
+    "url": ""
+  },
+  {
+    "title": "Learned Cost Models for Query Optimization: A Comprehensive Study",
+    "abstract": "Traditional cost models in query optimizers rely on simplistic assumptions about data distributions and operator costs. This paper presents a learned cost model that uses deep neural networks to predict query execution costs with high accuracy. We evaluate our approach on PostgreSQL and show significant improvements in plan quality across diverse workloads.",
+    "authors": "Ryan Marcus, Parimarjan Negi, Hongzi Mao, Tim Kraska",
+    "venue": "SIGMOD",
+    "year": 2022,
+    "keywords": "learned optimization, cost model, deep learning, query planning",
+    "url": ""
+  },
+  {
+    "title": "Scalable Transaction Processing on Disaggregated Storage",
+    "abstract": "Disaggregated storage architectures separate compute and storage layers, enabling independent scaling. We design a transaction processing engine that maintains serializability while exploiting disaggregated storage. Our system achieves 1.5 million transactions per second on YCSB with strong consistency guarantees.",
+    "authors": "Jian Tan, Yifan Dai, Zhanghao Wu, Yiming Zhang",
+    "venue": "VLDB",
+    "year": 2025,
+    "keywords": "transaction processing, disaggregated storage, scalability, serializability",
+    "url": ""
+  },
+  {
+    "title": "Graph Pattern Matching at Scale with Worst-Case Optimal Joins",
+    "abstract": "Subgraph pattern matching is fundamental to graph analytics but remains computationally expensive on large graphs. We present a distributed graph engine that uses worst-case optimal join algorithms to process complex patterns efficiently. Experiments on billion-edge graphs show order-of-magnitude speedups over existing systems like Neo4j and JanusGraph.",
+    "authors": "Longbin Lai, Zhengping Qian, Zhu Qing, Yong Chen",
+    "venue": "SIGMOD",
+    "year": 2023,
+    "keywords": "graph databases, pattern matching, worst-case optimal joins, distributed computing",
+    "url": ""
+  },
+  {
+    "title": "Stream Processing with Exactly-Once Semantics under Failures",
+    "abstract": "Providing exactly-once processing guarantees in stream processing systems remains challenging, especially under failures. We propose a lightweight checkpointing protocol that ensures exactly-once semantics with minimal overhead. Our approach integrates with Apache Flink and reduces recovery time by 60% compared to existing methods.",
+    "authors": "Paris Carbone, Gyula Fora, Stephan Ewen, Seif Haridi",
+    "venue": "ICDE",
+    "year": 2021,
+    "keywords": "stream processing, exactly-once, fault tolerance, checkpointing",
+    "url": ""
+  },
+  {
+    "title": "The Case for Learned Index Structures Revisited",
+    "abstract": "Learned indexes replace traditional index structures with machine learning models that predict the position of keys. This paper revisits the practical feasibility of learned indexes under realistic workloads with insertions, deletions, and distribution shifts. We propose a hybrid approach that combines learned models with B-tree fallback structures for robustness.",
+    "authors": "Tim Kraska, Alex Beutel, Ed H. Chi, Jeffrey Dean",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "learned indexes, B-tree, machine learning, index structures",
+    "url": ""
+  },
+  {
+    "title": "Aurora: A Cloud-Native Relational Database Engine",
+    "abstract": "Cloud-native databases must balance performance, availability, and cost in elastic environments. We present the architecture of Aurora, which decouples storage from compute and replicates data across availability zones. Aurora achieves five times the throughput of standard MySQL while providing high availability and durability guarantees.",
+    "authors": "Alexandre Verbitski, Anurag Gupta, Debanjan Saha, James Corey",
+    "venue": "SIGMOD",
+    "year": 2018,
+    "keywords": "cloud databases, storage disaggregation, high availability, MySQL",
+    "url": ""
+  },
+  {
+    "title": "CockroachDB: The Resilient Geo-Distributed SQL Database",
+    "abstract": "CockroachDB is a distributed SQL database designed for global deployments with strong consistency. This paper describes its architecture, including serializable transaction processing, automatic sharding, and multi-region replication. We demonstrate that CockroachDB can survive entire datacenter failures while maintaining SQL compatibility.",
+    "authors": "Rebecca Taft, Irfan Sharif, Andrei Matei, Nathan VanBenschoten",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "NewSQL, distributed databases, geo-distribution, consistency",
+    "url": ""
+  },
+  {
+    "title": "HolisticClean: Holistic Data Cleaning with Probabilistic Inference",
+    "abstract": "Data cleaning is a critical step in data preparation, yet existing tools address different error types in isolation. We present HolisticClean, a unified framework that models data errors probabilistically and leverages integrity constraints, external knowledge, and quantitative statistics simultaneously. Experiments show that our holistic approach outperforms specialized cleaning tools.",
+    "authors": "Theodoros Rekatsinas, Xu Chu, Ihab Ilyas, Christopher Re",
+    "venue": "VLDB",
+    "year": 2017,
+    "keywords": "data cleaning, probabilistic inference, data quality, integrity constraints",
+    "url": ""
+  },
+  {
+    "title": "Approximate Query Processing for Interactive Analytics",
+    "abstract": "Interactive data exploration requires sub-second query response times, which are difficult to achieve on large datasets. We propose a sampling-based approximate query processing engine that provides error-bounded results with latency guarantees. Our system supports a rich set of aggregate queries and integrates seamlessly with existing SQL interfaces.",
+    "authors": "Sameer Agarwal, Barzan Mozafari, Aurojit Panda, Henry Milner",
+    "venue": "VLDB",
+    "year": 2019,
+    "keywords": "approximate query processing, sampling, interactive analytics, error bounds",
+    "url": ""
+  },
+  {
+    "title": "Differential Privacy in Database Systems: A Survey",
+    "abstract": "Differential privacy has emerged as the gold standard for privacy-preserving data analysis. This survey reviews the integration of differential privacy mechanisms into database systems, covering query answering, data publishing, and machine learning. We identify key challenges including utility optimization, composition theorems, and practical deployment considerations.",
+    "authors": "Xi He, Ashwin Machanavajjhala, Cheryl Flynn, Divesh Srivastava",
+    "venue": "TODS",
+    "year": 2021,
+    "keywords": "differential privacy, database security, privacy-preserving analytics, survey",
+    "url": ""
+  },
+  {
+    "title": "TimescaleDB: SQL Made Scalable for Time-Series Data",
+    "abstract": "Time-series data is growing rapidly with IoT and monitoring applications, yet existing time-series databases sacrifice SQL compatibility. TimescaleDB extends PostgreSQL with automatic partitioning and time-series optimizations while preserving full SQL support. We demonstrate competitive performance with specialized time-series systems on industrial benchmarks.",
+    "authors": "Ajay Kulkarni, Michael Freedman, Anup Agarwal, Erik Nordstrom",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "time series, PostgreSQL, partitioning, IoT",
+    "url": ""
+  },
+  {
+    "title": "FAISS: A Library for Efficient Similarity Search and Clustering of Dense Vectors",
+    "abstract": "Similarity search in high-dimensional vector spaces is essential for applications like recommendation systems and information retrieval. We present FAISS, a library that provides highly optimized implementations of nearest neighbor search algorithms on GPU and CPU. FAISS supports billion-scale vector collections with sub-millisecond query latency through quantization and indexing techniques.",
+    "authors": "Jeff Johnson, Matthijs Douze, Herve Jegou",
+    "venue": "VLDB",
+    "year": 2019,
+    "keywords": "vector search, similarity search, nearest neighbor, GPU computing",
+    "url": ""
+  },
+  {
+    "title": "Snowflake: The Data Cloud Architecture",
+    "abstract": "Snowflake is a cloud-built data warehouse that separates compute, storage, and cloud services into independent layers. This paper describes the architectural decisions behind Snowflake, including virtual warehouses, automatic clustering, and secure data sharing. We report on lessons learned from operating at scale across thousands of customers.",
+    "authors": "Benoit Dageville, Thierry Cruanes, Marcin Zukowski, Vadim Antonov",
+    "venue": "SIGMOD",
+    "year": 2016,
+    "keywords": "data warehousing, cloud computing, OLAP, architecture",
+    "url": ""
+  },
+  {
+    "title": "LSM-Tree Compaction Strategies: A Systematic Evaluation",
+    "abstract": "Log-structured merge trees underpin many modern storage engines, but compaction strategy significantly affects performance. We systematically evaluate leveled, tiered, and hybrid compaction strategies under diverse workloads. Our analysis reveals that no single strategy dominates and provides guidelines for choosing strategies based on workload characteristics.",
+    "authors": "Niv Dayan, Manos Athanassoulis, Stratos Idreos",
+    "venue": "SIGMOD",
+    "year": 2017,
+    "keywords": "LSM-tree, compaction, storage engines, write optimization",
+    "url": ""
+  },
+  {
+    "title": "Optimistic Concurrency Control Revisited for Modern Hardware",
+    "abstract": "Optimistic concurrency control was historically limited by validation overhead, but modern multi-core hardware changes the trade-offs. We present an OCC variant that leverages hardware transactional memory and cache-line-aligned data structures to minimize abort rates. Our system achieves 2.4x higher throughput than pessimistic locking on a 64-core machine.",
+    "authors": "Thomas Neumann, Tobias Muhlbauer, Alfons Kemper",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "concurrency control, OCC, hardware transactional memory, multi-core",
+    "url": ""
+  },
+  {
+    "title": "SageDB: A Learned Database System",
+    "abstract": "We propose SageDB, a database system that uses machine learning models to synthesize key database components including indexes, query optimizer, and storage layout. By learning from data distributions and workload patterns, SageDB can specialize its internal components for each deployment. Early results show substantial performance gains over general-purpose database systems.",
+    "authors": "Tim Kraska, Mohammad Alizadeh, Alex Beutel, Ed H. Chi",
+    "venue": "CIDR",
+    "year": 2019,
+    "keywords": "learned databases, self-tuning, machine learning, specialization",
+    "url": ""
+  },
+  {
+    "title": "Data Integration in the Age of Deep Learning",
+    "abstract": "Data integration tasks such as schema matching, entity resolution, and data fusion can benefit from deep learning techniques. This paper presents a framework that uses pre-trained language models to learn semantic representations of data for integration tasks. We demonstrate state-of-the-art results on established benchmarks without requiring hand-crafted features.",
+    "authors": "Yuliang Li, Jinfeng Li, Yoshihiko Suhara, AnHai Doan, Wang-Chiew Tan",
+    "venue": "VLDB",
+    "year": 2021,
+    "keywords": "data integration, deep learning, schema matching, entity resolution",
+    "url": ""
+  },
+  {
+    "title": "Bao: Making Learned Query Optimization Practical",
+    "abstract": "Learned query optimizers have shown promise in academic settings but face challenges in production deployment. Bao uses a bandit-based approach to learn from query execution feedback and steer the existing optimizer toward better plans. Unlike end-to-end learned optimizers, Bao is safe to deploy as it always falls back to the default plan if uncertain.",
+    "authors": "Ryan Marcus, Parimarjan Negi, Hongzi Mao, Nesime Tatbul, Tim Kraska",
+    "venue": "SIGMOD",
+    "year": 2021,
+    "keywords": "learned optimization, bandit learning, query planning, practical deployment",
+    "url": ""
+  },
+  {
+    "title": "FaunaDB: An Architectural Overview of a Globally Distributed Database",
+    "abstract": "Building a globally distributed database that provides strong consistency and low latency is a fundamental challenge. FaunaDB uses a novel variant of Calvin to provide strict serializability across geo-distributed replicas. This paper details the architecture and evaluates its performance characteristics under various deployment scenarios.",
+    "authors": "Evan Weaver, Chris Anderson, Matt Freels",
+    "venue": "ICDE",
+    "year": 2020,
+    "keywords": "distributed databases, global consistency, Calvin protocol, NoSQL",
+    "url": ""
+  },
+  {
+    "title": "Progressive Sampling for Cardinality Estimation",
+    "abstract": "Accurate cardinality estimation is critical for query optimization, yet traditional histogram-based methods often produce large errors. We propose a progressive sampling approach that builds increasingly accurate cardinality estimates during query compilation. Our method adapts to complex correlations between columns and reduces median estimation error by 10x compared to PostgreSQL.",
+    "authors": "Zongheng Yang, Amog Kamsetty, Sifei Luan, Eric Liang, Ion Stoica",
+    "venue": "VLDB",
+    "year": 2020,
+    "keywords": "cardinality estimation, sampling, query optimization, statistics",
+    "url": ""
+  },
+  {
+    "title": "HTAP Databases: What is Old is New Again",
+    "abstract": "Hybrid transactional and analytical processing databases aim to serve both workload types in a single system. We survey the design space of HTAP architectures, comparing shared-storage, delta-store, and replication-based approaches. Our experimental evaluation reveals key trade-offs between freshness of analytical results and transactional throughput.",
+    "authors": "Fatma Ozcan, Tian Guo, Pinar Tozun",
+    "venue": "ICDE",
+    "year": 2022,
+    "keywords": "HTAP, OLTP, OLAP, hybrid workloads",
+    "url": ""
+  },
+  {
+    "title": "Milvus: A Purpose-Built Vector Data Management System",
+    "abstract": "The explosion of embedding-based applications demands specialized systems for managing and querying vector data at scale. Milvus is a purpose-built vector database that supports heterogeneous index types, hybrid scalar-vector queries, and horizontal scalability. We demonstrate its effectiveness for billion-scale similarity search with tunable accuracy-performance trade-offs.",
+    "authors": "Jianguo Wang, Xiaomeng Yi, Rentong Guo, Hai Jin, Peng Xu",
+    "venue": "SIGMOD",
+    "year": 2021,
+    "keywords": "vector database, similarity search, embeddings, approximate nearest neighbor",
+    "url": ""
+  },
+  {
+    "title": "Efficiently Compiling Queries for Modern Hardware",
+    "abstract": "Traditional database query engines use the Volcano iterator model, which introduces significant overhead from virtual function calls and poor data locality. We present a compilation-based query engine that generates machine code using LLVM, achieving performance close to hand-written C++ code. Our approach processes TPC-H queries up to 10x faster than interpreted execution.",
+    "authors": "Thomas Neumann",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "query compilation, code generation, LLVM, query processing",
+    "url": ""
+  },
+  {
+    "title": "Orca: A Modular Query Optimizer Architecture for Big Data",
+    "abstract": "Query optimization in big data systems faces unique challenges from massive data volumes and heterogeneous execution environments. Orca is a modular optimizer that separates search, transformation, and cost estimation into independent components. We show how this architecture enables optimizer reuse across multiple execution engines including Greenplum and HAWQ.",
+    "authors": "Mohamed Soliman, Lyublena Antova, Venkatesh Raghavan, Amr El-Helw",
+    "venue": "SIGMOD",
+    "year": 2017,
+    "keywords": "query optimization, modular design, big data, Greenplum",
+    "url": ""
+  },
+  {
+    "title": "Fast Serializable Multi-Version Concurrency Control for Main-Memory Databases",
+    "abstract": "Multi-version concurrency control enables readers to proceed without blocking writers, but serializable MVCC has historically been expensive. We present a novel MVCC protocol for main-memory databases that achieves serializable isolation with minimal overhead over snapshot isolation. Our approach uses precision locking to detect serialization anomalies at commit time.",
+    "authors": "Thomas Neumann, Tobias Muhlbauer, Alfons Kemper",
+    "venue": "SIGMOD",
+    "year": 2015,
+    "keywords": "MVCC, serializability, main-memory databases, concurrency control",
+    "url": ""
+  },
+  {
+    "title": "BlinkDB: Queries with Bounded Errors and Bounded Response Times on Very Large Data",
+    "abstract": "Analytical queries on massive datasets often take minutes to complete, even with parallelism. BlinkDB enables sub-second approximate answers by maintaining a set of multi-dimensional stratified samples. Users can specify either an error bound or a time bound, and BlinkDB automatically selects the appropriate sample and reports the accuracy achieved.",
+    "authors": "Sameer Agarwal, Barzan Mozafari, Aurojit Panda, Henry Milner, Samuel Madden, Ion Stoica",
+    "venue": "EuroSys",
+    "year": 2016,
+    "keywords": "approximate query processing, sampling, error bounds, response time",
+    "url": ""
+  },
+  {
+    "title": "Spanner: Becoming a SQL System",
+    "abstract": "Google's Spanner has evolved from a key-value store to a full-featured SQL database. This paper describes the query processing, transactional consistency, and schema management features that were added to support standard SQL. We discuss the challenges of integrating a query optimizer and SQL execution engine into a globally distributed system.",
+    "authors": "David Bacon, Nathan Bales, Nico Bruno, Brian Cooper, Adam Dickinson",
+    "venue": "SIGMOD",
+    "year": 2017,
+    "keywords": "Spanner, SQL, distributed databases, Google",
+    "url": ""
+  },
+  {
+    "title": "Towards a Unified Architecture for In-Database Machine Learning",
+    "abstract": "Running machine learning algorithms inside the database avoids costly data export and enables tighter integration with SQL workflows. We present a unified architecture that supports gradient descent, factorized learning, and inference as native database operations. Experiments show that in-database learning can be 10x faster than exporting data to external ML frameworks.",
+    "authors": "Maximilian Schleich, Dan Olteanu, Mahmoud Abo Khamis, Hung Q. Ngo",
+    "venue": "SIGMOD",
+    "year": 2019,
+    "keywords": "in-database ML, factorized learning, SQL, machine learning",
+    "url": ""
+  },
+  {
+    "title": "Napa: Powering Scalable Data Warehousing with Robust Query Performance at Google",
+    "abstract": "Napa is Google's data warehousing system designed for extreme-scale analytics with predictable query performance. The system uses a novel approach to data organization that combines partitioning, sorting, and materialized views with automatic physical design tuning. We report on operational experience processing exabytes of data daily.",
+    "authors": "Ankur Goyal, Anirudh Joshi, Vikas Prakash, Jeff Shute",
+    "venue": "VLDB",
+    "year": 2021,
+    "keywords": "data warehousing, scalability, materialized views, physical design",
+    "url": ""
+  },
+  {
+    "title": "Neo: A Learned Query Optimizer",
+    "abstract": "We present Neo, a learned query optimizer that uses deep reinforcement learning to generate query execution plans. Neo represents the query plan search space as a tree-structured neural network and learns to navigate it through reward signals from actual query executions. On real workloads, Neo produces plans comparable to or better than commercial optimizers.",
+    "authors": "Ryan Marcus, Parimarjan Negi, Hongzi Mao, Chi Zhang, Tim Kraska",
+    "venue": "VLDB",
+    "year": 2019,
+    "keywords": "learned optimization, reinforcement learning, neural networks, query planning",
+    "url": ""
+  },
+  {
+    "title": "Columnar Storage Optimization for Analytical Workloads",
+    "abstract": "Columnar storage formats are widely adopted for analytical workloads, but optimal encoding and compression choices depend on data characteristics. We present an automated framework that profiles data and selects the best combination of encoding schemes per column. Our approach improves scan performance by 40% over default Parquet configurations on real-world datasets.",
+    "authors": "Dominik Moritz, Bill Howe, Jeffrey Heer",
+    "venue": "ICDE",
+    "year": 2022,
+    "keywords": "columnar storage, compression, encoding, OLAP",
+    "url": ""
+  },
+  {
+    "title": "Secure Multi-Party Database Queries Using Garbled Circuits",
+    "abstract": "Secure multi-party computation enables joint queries across private databases without revealing individual records. We develop a garbled circuit framework optimized for SQL operations including joins, aggregation, and filtering. Our system achieves practical performance on datasets with millions of rows, enabling federated analytics across organizational boundaries.",
+    "authors": "Johes Bater, Gregory Elliott, Craig Eggen, Satyanarayana Goutam, Jennie Rogers",
+    "venue": "VLDB",
+    "year": 2018,
+    "keywords": "secure computation, privacy, garbled circuits, federated queries",
+    "url": ""
+  },
+  {
+    "title": "InfluxDB: Time Series Database for Metrics and Events",
+    "abstract": "Time-series workloads have unique characteristics including high write throughput, time-based queries, and data lifecycle management. InfluxDB is built from the ground up for these requirements with a custom time-structured merge tree storage engine. We detail the design trade-offs and benchmark against general-purpose databases on time-series workloads.",
+    "authors": "Paul Dix, Todd Persen, David Norton",
+    "venue": "ICDE",
+    "year": 2019,
+    "keywords": "time series, storage engine, metrics, IoT",
+    "url": ""
+  },
+  {
+    "title": "Pinot: Realtime OLAP for 530 Million Users",
+    "abstract": "Apache Pinot is a realtime distributed OLAP datastore used at LinkedIn to serve analytical queries with low latency. Pinot ingests data from both offline and realtime sources and indexes it for fast aggregation queries. This paper describes the architecture and operational challenges of running Pinot at LinkedIn's scale.",
+    "authors": "Kishore Gopalakrishna, Xiang Fu, Neha Pawar, Seunghyun Lee",
+    "venue": "SIGMOD",
+    "year": 2018,
+    "keywords": "OLAP, real-time analytics, distributed systems, LinkedIn",
+    "url": ""
+  },
+  {
+    "title": "MonetDB/X100: Hyper-Pipelining Query Execution",
+    "abstract": "Modern CPUs are optimized for pipelined execution, but traditional database engines fail to exploit this capability. We introduce the X100 architecture that processes data in tight vectorized loops, maximizing CPU utilization. Our approach bridges the gap between main-memory database performance and raw CPU capabilities, achieving near-theoretical throughput on analytical queries.",
+    "authors": "Peter Boncz, Marcin Zukowski, Niels Nes",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "vectorized execution, CPU optimization, pipelining, OLAP",
+    "url": ""
+  },
+  {
+    "title": "Taming Model-Based Query Optimization with Bayesian Techniques",
+    "abstract": "Model-based query optimization can suffer from poor model accuracy and overfitting to training workloads. We propose a Bayesian approach to learned query optimization that quantifies uncertainty in cost predictions and uses it for robust plan selection. Our method gracefully degrades to the default optimizer when prediction confidence is low.",
+    "authors": "Benjamin Hilprecht, Andreas Schmidt, Moritz Kulessa, Alejandro Molina, Carsten Binnig",
+    "venue": "VLDB",
+    "year": 2022,
+    "keywords": "Bayesian optimization, query planning, uncertainty, robustness",
+    "url": ""
+  },
+  {
+    "title": "A Survey on Graph Neural Networks for Knowledge Graph Completion",
+    "abstract": "Knowledge graph completion aims to infer missing facts in knowledge bases and is closely tied to graph database query answering. This survey reviews graph neural network approaches for link prediction, relation extraction, and entity alignment. We provide a taxonomy of methods and identify open research directions for combining GNNs with graph databases.",
+    "authors": "Lingbing Guo, Zequn Sun, Wei Hu",
+    "venue": "VLDB",
+    "year": 2022,
+    "keywords": "knowledge graphs, graph neural networks, link prediction, survey",
+    "url": ""
+  },
+  {
+    "title": "Lakehouse: A New Generation of Open Platforms that Unify Data Warehousing and Advanced Analytics",
+    "abstract": "Data lakes and data warehouses have traditionally served different purposes, leading to complex two-tier architectures. The lakehouse paradigm unifies structured and unstructured data management with ACID transactions on open file formats. We describe the design of a lakehouse system built on Delta Lake and evaluate its performance against traditional data warehouses.",
+    "authors": "Michael Armbrust, Ali Ghodsi, Reynold Xin, Matei Zaharia",
+    "venue": "CIDR",
+    "year": 2021,
+    "keywords": "lakehouse, data lake, data warehouse, Delta Lake",
+    "url": ""
+  },
+  {
+    "title": "Robust Estimation of Transition Matrices in High-Dimensional Streaming Data",
+    "abstract": "Streaming algorithms must maintain compact summaries of evolving data distributions. We present a robust estimation method for transition matrices in high-dimensional data streams using sketching techniques. Our algorithm provides provable accuracy guarantees while using sublinear space, making it suitable for monitoring database workload transitions.",
+    "authors": "Vladimir Braverman, Gereon Frahling, Harry Lang, Christian Sohler",
+    "venue": "PODS",
+    "year": 2020,
+    "keywords": "streaming algorithms, sketching, transition matrices, sublinear space",
+    "url": ""
+  },
+  {
+    "title": "Predicate Pushdown for Data Lake Analytics",
+    "abstract": "Data lake analytics often scans large amounts of data from object storage, making predicate pushdown critical for performance. We present techniques for pushing predicates through complex ETL pipelines and into heterogeneous storage formats. Our approach reduces data transfer by up to 90% for selective queries on cloud data lakes.",
+    "authors": "Zuyu Zhang, Harish Butani, Jiannan Wang",
+    "venue": "ICDE",
+    "year": 2023,
+    "keywords": "predicate pushdown, data lakes, query optimization, cloud storage",
+    "url": ""
+  },
+  {
+    "title": "Taurus: Lightweight Parallel Logging for In-Memory Databases",
+    "abstract": "Write-ahead logging is a bottleneck for in-memory databases due to sequential I/O and synchronization overhead. Taurus introduces a parallel logging architecture that distributes log records across multiple log partitions without requiring centralized coordination. Our approach scales linearly with the number of cores and achieves 3x higher throughput than centralized logging.",
+    "authors": "Yu Xia, Xiangyao Yu, Andrew Pavlo, Srinivas Devadas",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "write-ahead logging, in-memory databases, parallelism, recovery",
+    "url": ""
+  },
+  {
+    "title": "ALEX: An Updatable Adaptive Learned Index",
+    "abstract": "Learned index structures promise better performance than traditional B-trees but struggle with updates. ALEX is a learned index that supports efficient insertions and deletions through a novel gapped array layout and adaptive model retraining. On read-heavy workloads, ALEX achieves up to 4.1x faster lookups than B-trees while maintaining competitive update performance.",
+    "authors": "Jialin Ding, Umar Farooq Minhas, Jia Yu, Chi Wang, Tim Kraska",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "learned index, B-tree, adaptive, updatable",
+    "url": ""
+  },
+  {
+    "title": "Polaris: Enabling Transaction Processing in Large-Scale Analytics Systems",
+    "abstract": "Large-scale analytics systems like Spark and Presto lack transactional guarantees, limiting their applicability for operational workloads. Polaris adds ACID transaction support to analytics engines through a thin metadata layer that tracks data versioning. Our approach adds less than 5% overhead to query execution while providing snapshot isolation.",
+    "authors": "Ippokratis Pandis, Minglong Shao, Songyun Duan",
+    "venue": "VLDB",
+    "year": 2022,
+    "keywords": "transactions, analytics, ACID, snapshot isolation",
+    "url": ""
+  },
+  {
+    "title": "Distributed Graph Analytics with Pregel: An Evaluation",
+    "abstract": "The Pregel model for distributed graph analytics has been widely adopted, but its performance characteristics are not well understood. We evaluate several Pregel-like systems on diverse graph algorithms and datasets. Our analysis identifies that message passing overhead and load imbalance are the primary bottlenecks, and we propose mitigation strategies.",
+    "authors": "Yingxia Shao, Bin Cui, Lei Chen, Lin Ma",
+    "venue": "ICDE",
+    "year": 2018,
+    "keywords": "graph analytics, Pregel, distributed computing, evaluation",
+    "url": ""
+  },
+  {
+    "title": "Qd-tree: Learning Data Layouts for Big Data Analytics",
+    "abstract": "Data layout optimization is crucial for analytical query performance but traditionally relies on manual tuning. We present qd-trees, a data layout structure that learns to partition data based on query workload. By analyzing query predicates, qd-trees create partitions that minimize data scanned across the workload, outperforming traditional range and hash partitioning.",
+    "authors": "Zongheng Yang, Badrish Chandramouli, Chi Wang, Johannes Gehrke, Yinan Li",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "data layout, partitioning, learned optimization, analytics",
+    "url": ""
+  },
+  {
+    "title": "Schema Evolution in Heterogeneous Data Lakes",
+    "abstract": "Data lakes accumulate data over time with evolving schemas, creating challenges for query processing and data integration. We present a schema evolution framework that automatically tracks, reconciles, and adapts to schema changes across diverse data sources. Our approach uses schema matching algorithms to maintain queryable views over heterogeneous data.",
+    "authors": "Fatemeh Nargesian, Erkang Zhu, Renee Miller, Ken Pu",
+    "venue": "ICDE",
+    "year": 2021,
+    "keywords": "schema evolution, data lakes, data integration, heterogeneous data",
+    "url": ""
+  },
+  {
+    "title": "Umbra: A Disk-Based System with In-Memory Performance",
+    "abstract": "In-memory databases achieve high performance but are limited by DRAM capacity and cost. Umbra is a disk-based system that achieves in-memory-like performance through adaptive buffer management and compiled query execution. By combining just-in-time compilation with a variable-size buffer pool, Umbra handles datasets larger than memory without significant performance degradation.",
+    "authors": "Thomas Neumann, Michael Freitag",
+    "venue": "VLDB",
+    "year": 2020,
+    "keywords": "buffer management, query compilation, disk-based, performance",
+    "url": ""
+  },
+  {
+    "title": "Privacy-Preserving Record Linkage Using Bloom Filters",
+    "abstract": "Record linkage across organizations requires matching records without revealing sensitive data. We propose an enhanced Bloom filter protocol that enables approximate matching of encrypted identifiers with tunable privacy-accuracy trade-offs. Our method is robust against frequency attacks and achieves linkage quality comparable to cleartext matching on census datasets.",
+    "authors": "Rainer Schnell, Tobias Bachteler, Jorg Reiher",
+    "venue": "VLDB",
+    "year": 2016,
+    "keywords": "privacy, record linkage, Bloom filters, encryption",
+    "url": ""
+  },
+  {
+    "title": "Auto-WLM: Machine Learning for Workload Management in Cloud Databases",
+    "abstract": "Workload management in cloud databases involves scheduling queries, allocating resources, and managing concurrency. We present Auto-WLM, a machine learning framework that automatically tunes workload management policies based on observed query patterns. Our system reduces average query latency by 35% and tail latency by 50% compared to static resource allocation.",
+    "authors": "Brad Glasbergen, Michael Abebe, Khuzaima Daudjee",
+    "venue": "ICDE",
+    "year": 2023,
+    "keywords": "workload management, machine learning, cloud databases, scheduling",
+    "url": ""
+  },
+  {
+    "title": "Dependency-Aware Query Processing in Distributed Databases",
+    "abstract": "In distributed databases, query execution plans must account for data dependencies across partitions. We present a query processing framework that explicitly models inter-partition dependencies and uses them to minimize network communication. Our approach reduces data shuffling by up to 60% on star and snowflake schema workloads.",
+    "authors": "Wolf Roediger, Tobias Muehlbauer, Alfons Kemper, Thomas Neumann",
+    "venue": "VLDB",
+    "year": 2016,
+    "keywords": "distributed query processing, data shuffling, partitioning, network optimization",
+    "url": ""
+  },
+  {
+    "title": "Deep Reinforcement Learning for Join Order Optimization",
+    "abstract": "Join ordering is a core challenge in query optimization, with the search space growing exponentially with the number of tables. We formulate join ordering as a Markov decision process and solve it using deep reinforcement learning. Our agent learns effective join orderings that outperform dynamic programming on complex queries with many tables.",
+    "authors": "Sanjay Krishnan, Zongheng Yang, Ken Goldberg, Joseph Hellerstein, Ion Stoica",
+    "venue": "SIGMOD",
+    "year": 2018,
+    "keywords": "join ordering, reinforcement learning, query optimization, deep learning",
+    "url": ""
+  },
+  {
+    "title": "Document Stores vs. Relational Databases: A Comparative Study",
+    "abstract": "Document stores like MongoDB have gained popularity for their schema flexibility, but the performance implications versus relational databases are unclear. We conduct a comprehensive comparison of MongoDB and PostgreSQL across OLTP and analytical workloads. Our results show that each system has clear advantages depending on data structure, query patterns, and consistency requirements.",
+    "authors": "Yinan Li, Nikos Ntarmos, Peter Triantafillou",
+    "venue": "ICDE",
+    "year": 2019,
+    "keywords": "NoSQL, document stores, MongoDB, comparison",
+    "url": ""
+  },
+  {
+    "title": "Persistent Memory and Database Systems: A Survey",
+    "abstract": "Persistent memory technologies like Intel Optane blur the boundary between storage and main memory, creating opportunities for database redesign. This survey covers database architectures for persistent memory, including logging, indexing, and buffer management adaptations. We identify that failure atomicity and wear leveling remain key challenges for adoption.",
+    "authors": "Joy Arulraj, Andrew Pavlo, Subramanya Dulloor",
+    "venue": "TODS",
+    "year": 2021,
+    "keywords": "persistent memory, NVM, database architecture, survey",
+    "url": ""
+  },
+  {
+    "title": "Erasing Data from Trained Machine Learning Models in Databases",
+    "abstract": "Data regulations like GDPR require the ability to delete user data, but machine learning models retain information about training data. We address the challenge of data erasure for ML models deployed within database systems. Our approach uses influence function approximations to efficiently retrain models after deletion requests without full retraining.",
+    "authors": "Yinjun Wu, Edgar Dobriban, Susan Davidson",
+    "venue": "SIGMOD",
+    "year": 2023,
+    "keywords": "data deletion, GDPR, machine learning, machine unlearning",
+    "url": ""
+  },
+  {
+    "title": "Scalable and Adaptive Graph Pattern Mining",
+    "abstract": "Frequent subgraph pattern mining in large graphs is computationally challenging due to the exponential search space. We present a scalable mining framework that uses adaptive sampling to prune the search space while providing statistical guarantees on pattern completeness. Our system discovers patterns in billion-edge graphs that were previously intractable.",
+    "authors": "Tian Xie, Xin Huang, Ying Zhang, Wei Wang",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "graph mining, pattern mining, sampling, scalability",
+    "url": ""
+  },
+  {
+    "title": "End-to-End Learned Cardinality Estimation with Transformers",
+    "abstract": "Cardinality estimation remains the Achilles heel of query optimization, with traditional methods failing on correlated data. We propose a transformer-based architecture that takes SQL queries as input and directly predicts result cardinalities. By pre-training on diverse database schemas, our model generalizes to unseen queries and achieves 100x lower estimation error than PostgreSQL.",
+    "authors": "Peizhi Wu, Gao Cong",
+    "venue": "VLDB",
+    "year": 2025,
+    "keywords": "cardinality estimation, transformers, deep learning, query optimization",
+    "url": ""
+  },
+  {
+    "title": "Multi-Tenant Database Management for Cloud Services",
+    "abstract": "Multi-tenancy is essential for cost efficiency in cloud databases but introduces challenges in isolation, performance, and resource management. We present a multi-tenant database architecture that provides strong isolation guarantees while maximizing resource sharing. Our approach uses workload-aware tenant placement and adaptive resource allocation to meet SLA requirements.",
+    "authors": "Vivek Narasayya, Sudipto Das, Manoj Syamala, Ravishankar Ramamurthy, Badrish Chandramouli",
+    "venue": "SIGMOD",
+    "year": 2018,
+    "keywords": "multi-tenancy, cloud databases, resource management, SLA",
+    "url": ""
+  },
+  {
+    "title": "Self-Driving Database Management Systems",
+    "abstract": "Modern databases require extensive manual tuning by experienced DBAs, which is expensive and error-prone. We envision self-driving database systems that automatically optimize their configuration, physical design, and resource allocation using machine learning. We describe NoisePage, our prototype self-driving database, and demonstrate autonomous knob tuning and index selection.",
+    "authors": "Andrew Pavlo, Matthew Butrovich, Lin Ma, Prashanth Menon, Wan Shen Lim",
+    "venue": "CIDR",
+    "year": 2019,
+    "keywords": "autonomous databases, self-tuning, machine learning, NoisePage",
+    "url": ""
+  },
+  {
+    "title": "Vectorized Query Execution on ARM Processors",
+    "abstract": "Modern ARM processors with NEON and SVE SIMD extensions offer new opportunities for database acceleration. We adapt vectorized query execution techniques originally designed for x86 to ARM architectures. Our evaluation shows that ARM-optimized vectorization achieves competitive performance with x86 on analytical queries while offering better energy efficiency.",
+    "authors": "Harald Lang, Tobias Muhlbauer, Florian Funke, Peter Boncz",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "vectorized execution, ARM, SIMD, energy efficiency",
+    "url": ""
+  },
+  {
+    "title": "Detecting and Resolving Conflicts in Data Cleaning Pipelines",
+    "abstract": "Data cleaning pipelines often apply multiple transformations that can interact in unexpected ways, producing incorrect results. We formally define cleaning conflicts and present algorithms for detecting and resolving them automatically. Our system ensures that the output of a cleaning pipeline satisfies all specified integrity constraints simultaneously.",
+    "authors": "Xu Chu, John Morcos, Ihab Ilyas, Mourad Ouzzani, Paolo Papotti",
+    "venue": "SIGMOD",
+    "year": 2017,
+    "keywords": "data cleaning, conflict resolution, integrity constraints, data quality",
+    "url": ""
+  },
+  {
+    "title": "Query Processing on Encrypted Databases: Techniques and Challenges",
+    "abstract": "Processing queries on encrypted data is essential for secure cloud databases. We survey encryption schemes that support different query operations, from basic equality checks to range queries and aggregation. Our analysis compares property-preserving encryption, homomorphic encryption, and hardware-based approaches in terms of security guarantees and performance overhead.",
+    "authors": "Seny Kamara, Tarik Moataz",
+    "venue": "TODS",
+    "year": 2020,
+    "keywords": "encrypted databases, query processing, security, homomorphic encryption",
+    "url": ""
+  },
+  {
+    "title": "Tsunami: A Learned Multi-dimensional Index for Correlated Data",
+    "abstract": "Existing multi-dimensional indexes treat dimensions independently, missing opportunities to exploit data correlations. Tsunami uses machine learning to model correlations between dimensions and builds a compact index that leverages these correlations for faster point and range queries. Experiments on real datasets show 2-5x improvement over R-trees and kd-trees.",
+    "authors": "Jialin Ding, Vikram Nathan, Mohammad Alizadeh, Tim Kraska",
+    "venue": "VLDB",
+    "year": 2021,
+    "keywords": "multi-dimensional index, learned index, correlations, spatial queries",
+    "url": ""
+  },
+  {
+    "title": "Greenplum: A Hybrid Database for Transactional and Analytical Workloads",
+    "abstract": "Greenplum is a massively parallel database system designed for large-scale analytics. This paper describes recent extensions to support transactional workloads alongside analytics, including row-store tables, global transactions, and fine-grained concurrency control. We evaluate the system on mixed workloads and demonstrate its versatility as a hybrid platform.",
+    "authors": "Zhenghua Lyu, Huan Hubert Zhang, Gang Xiong, Yingying Guo",
+    "venue": "ICDE",
+    "year": 2021,
+    "keywords": "Greenplum, MPP, hybrid workloads, parallel processing",
+    "url": ""
+  },
+  {
+    "title": "Buffer Pool Aware Query Optimization",
+    "abstract": "Traditional query optimizers assume cold buffer pools and estimate I/O costs based on disk access. We present a buffer-pool-aware optimizer that incorporates information about cached pages into cost estimation. By considering which data is already in memory, our optimizer produces plans that are up to 5x faster than buffer-pool-oblivious plans.",
+    "authors": "Wook-Shin Han, Wooseong Kwak, Jinsoo Lee, Guy Lohman",
+    "venue": "SIGMOD",
+    "year": 2016,
+    "keywords": "buffer pool, query optimization, cost estimation, caching",
+    "url": ""
+  },
+  {
+    "title": "Real-Time Machine Learning on Streaming Data with Feature Stores",
+    "abstract": "Deploying machine learning models on streaming data requires consistent feature computation across training and serving environments. We present a feature store architecture that computes and serves features in real-time from data streams while ensuring training-serving consistency. Our system handles millions of feature lookups per second with sub-millisecond latency.",
+    "authors": "Jim Dowling, Moritz Meister, Fabio Buso",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "feature stores, streaming, machine learning, real-time",
+    "url": ""
+  },
+  {
+    "title": "Optimal Column Layout for Hybrid Workloads",
+    "abstract": "Hybrid workloads that mix transactional and analytical queries pose challenges for storage layout design. We formalize the column layout selection problem for HTAP workloads and present an algorithm that finds the optimal mix of row-store and column-store segments. Our approach dynamically adapts the layout as workload patterns change.",
+    "authors": "Jianwen Huang, Nesime Tatbul, Stan Zdonik",
+    "venue": "ICDE",
+    "year": 2019,
+    "keywords": "column layout, HTAP, storage optimization, hybrid workloads",
+    "url": ""
+  },
+  {
+    "title": "AsterixDB: A Scalable, Open Source BDMS",
+    "abstract": "AsterixDB is an open source big data management system that provides a full query language, secondary indexing, and data feeds. Unlike analytics-only systems, AsterixDB supports both batch analytics and data ingestion within a unified architecture. We detail the storage, indexing, and query processing subsystems and evaluate performance at scale.",
+    "authors": "Sattam Alsubaiee, Yasser Altowim, Hotham Altwaijry, Alexander Behm, Vinayak Borkar, Michael Carey",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "big data, BDMS, indexing, data management",
+    "url": ""
+  },
+  {
+    "title": "Towards Neural Network-Based Query Execution",
+    "abstract": "We explore replacing traditional database operators with neural network models that directly produce query results. Our approach trains neural networks to approximate the behavior of select, project, and join operators on specific datasets. While not yet practical for general use, our results show that neural execution can outperform traditional methods for repetitive query patterns.",
+    "authors": "Benjamin Hilprecht, Andreas Schmidt, Carsten Binnig",
+    "venue": "SIGMOD",
+    "year": 2022,
+    "keywords": "neural networks, query execution, learned operators, approximation",
+    "url": ""
+  },
+  {
+    "title": "Efficient Temporal Graph Analytics with Columnar Storage",
+    "abstract": "Temporal graphs capture the evolution of relationships over time and require specialized storage and query processing. We present a columnar storage engine optimized for temporal graph queries that supports time-windowed traversals and temporal pattern matching. Our system processes temporal graph queries 8x faster than general-purpose graph databases.",
+    "authors": "Wentao Han, Youshan Miao, Kaiwei Li, Ming Wu, Fan Yang",
+    "venue": "VLDB",
+    "year": 2025,
+    "keywords": "temporal graphs, columnar storage, graph analytics, time-evolving",
+    "url": ""
+  },
+  {
+    "title": "Cost-Based Query Optimization for Serverless Databases",
+    "abstract": "Serverless databases have unique cost models where users pay per query based on resources consumed. Traditional optimizers minimize execution time but may increase resource usage and cost. We present a cost-aware optimizer for serverless environments that balances monetary cost, execution time, and resource consumption through multi-objective optimization.",
+    "authors": "Tapan Srivastava, Raul Castro Fernandez, Samuel Madden",
+    "venue": "SIGMOD",
+    "year": 2024,
+    "keywords": "serverless, query optimization, cost model, multi-objective",
+    "url": ""
+  },
+  {
+    "title": "RocksDB: Evolution of Development Priorities in a Key-Value Store Serving Large-Scale Applications",
+    "abstract": "RocksDB is a widely used embedded key-value store based on LSM-tree architecture. This paper describes how development priorities evolved as RocksDB was adopted by large-scale applications at Facebook. We discuss lessons learned about compaction, resource management, and the tension between performance features and operational simplicity.",
+    "authors": "Siying Dong, Andrew Kryczka, Yanqin Jin, Michael Stumm",
+    "venue": "TODS",
+    "year": 2021,
+    "keywords": "RocksDB, key-value store, LSM-tree, Facebook",
+    "url": ""
+  },
+  {
+    "title": "Automatic Physical Database Design: A Survey",
+    "abstract": "Physical database design, including index selection, partitioning, and materialized view selection, critically affects query performance. This survey comprehensively reviews automated approaches for physical design, from classical integer programming methods to recent machine learning-based techniques. We identify trends toward holistic design optimization that considers multiple design elements jointly.",
+    "authors": "Jan Kossmann, Stefan Halfpap, Marcel Jankrift, Rainer Schlosser",
+    "venue": "TODS",
+    "year": 2022,
+    "keywords": "physical design, index selection, automation, survey",
+    "url": ""
+  },
+  {
+    "title": "DuckDB: An Embeddable Analytical Database",
+    "abstract": "DuckDB is an in-process analytical database management system designed for efficient OLAP on local data. Unlike client-server databases, DuckDB runs within the application process and directly operates on data formats like Parquet and CSV. We detail the vectorized execution engine and columnar storage that enable competitive performance with larger database systems.",
+    "authors": "Mark Raasveldt, Hannes Muhleisen",
+    "venue": "SIGMOD",
+    "year": 2019,
+    "keywords": "embedded database, OLAP, vectorized execution, in-process",
+    "url": ""
+  },
+  {
+    "title": "Incremental View Maintenance for Complex Analytical Queries",
+    "abstract": "Materialized views accelerate analytical queries but must be maintained as underlying data changes. We present techniques for incrementally maintaining views defined by complex queries including nested subqueries, window functions, and CTEs. Our approach reduces maintenance cost by orders of magnitude compared to full recomputation for slowly-changing dimensions.",
+    "authors": "Milos Nikolic, Dan Olteanu",
+    "venue": "VLDB",
+    "year": 2018,
+    "keywords": "materialized views, incremental maintenance, OLAP, complex queries",
+    "url": ""
+  },
+  {
+    "title": "Entity Resolution with Hierarchical Graph Attention Networks",
+    "abstract": "Entity resolution identifies records referring to the same real-world entity across different data sources. We propose a hierarchical graph attention network that models both attribute-level and record-level similarities for entity matching. Our approach outperforms state-of-the-art methods on benchmark datasets by effectively capturing complex matching patterns.",
+    "authors": "Uriel Singer, Ido Guy, Sara Radinsky",
+    "venue": "ICDE",
+    "year": 2022,
+    "keywords": "entity resolution, graph attention networks, record matching, deep learning",
+    "url": ""
+  },
+  {
+    "title": "Shared-Nothing vs. Shared-Disk Architectures in Cloud Databases",
+    "abstract": "Cloud databases can be built with shared-nothing or shared-disk architectures, each with different trade-offs. We conduct a systematic comparison focusing on elasticity, fault tolerance, and performance under variable workloads. Our findings show that shared-disk architectures with compute-storage separation offer better elasticity, while shared-nothing provides lower latency for steady-state workloads.",
+    "authors": "Xiangyao Yu, Matt Youill, Matthew Woicik, Yihe Huang, Andrew Pavlo",
+    "venue": "VLDB",
+    "year": 2022,
+    "keywords": "cloud databases, shared-nothing, shared-disk, architecture comparison",
+    "url": ""
+  },
+  {
+    "title": "Continuously Adaptive Indexing",
+    "abstract": "Database cracking adapts indexes incrementally during query processing, but adapts only to the specific predicates in queries. We present continuously adaptive indexing, which generalizes cracking to build comprehensive index structures over time. Our approach uses query feedback to guide index construction toward the most beneficial regions of the data.",
+    "authors": "Stratos Idreos, Martin Kersten, Stefan Manegold",
+    "venue": "VLDB",
+    "year": 2016,
+    "keywords": "adaptive indexing, database cracking, self-tuning, index construction",
+    "url": ""
+  },
+  {
+    "title": "Vertica-ML: Distributed Machine Learning in a Column-Oriented Database",
+    "abstract": "Vertica-ML integrates machine learning algorithms directly into the Vertica analytical database. By implementing ML operations as SQL extensions, users can train and deploy models without moving data out of the database. We describe the distributed execution of gradient descent, decision trees, and k-means within the columnar MPP architecture.",
+    "authors": "Arash Fard, Anh Le, Patrick Larber, Marco Balestieri",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "in-database ML, Vertica, distributed learning, SQL extensions",
+    "url": ""
+  },
+  {
+    "title": "Compression-Aware Query Processing in Column Stores",
+    "abstract": "Column stores rely heavily on compression to reduce I/O, but decompression before query processing wastes CPU cycles. We present techniques for operating directly on compressed data for common operations including filtering, aggregation, and joins. Operating on compressed data reduces memory bandwidth requirements and speeds up analytical queries by up to 2.5x.",
+    "authors": "Daniel Abadi, Samuel Madden, Miguel Ferreira",
+    "venue": "VLDB",
+    "year": 2017,
+    "keywords": "compression, column stores, query processing, performance",
+    "url": ""
+  },
+  {
+    "title": "NoisePage: The Self-Driving Database Management System",
+    "abstract": "NoisePage is a self-driving database system that uses integrated machine learning components to automate administration tasks. The system includes a workload forecasting module, a behavior modeling engine, and an action planning framework. We demonstrate NoisePage autonomously selecting indexes, tuning knobs, and managing memory without human intervention.",
+    "authors": "Andrew Pavlo, Lin Ma, Matthew Butrovich, Wan Shen Lim, Prashanth Menon",
+    "venue": "VLDB",
+    "year": 2021,
+    "keywords": "self-driving database, autonomous, workload forecasting, NoisePage",
+    "url": ""
+  },
+  {
+    "title": "Handling Data Skew in Distributed Hash Joins",
+    "abstract": "Data skew causes severe load imbalance in distributed hash joins, with some partitions receiving disproportionately more data. We present a skew-aware join algorithm that dynamically detects heavy hitters and redistributes their processing across multiple nodes. Our approach achieves near-linear scalability even on highly skewed datasets.",
+    "authors": "Orestis Polychroniou, Rajkumar Sen, Kenneth Ross",
+    "venue": "SIGMOD",
+    "year": 2015,
+    "keywords": "hash join, data skew, distributed processing, load balancing",
+    "url": ""
+  },
+  {
+    "title": "LeanStore: In-Memory Data Management Beyond Main Memory",
+    "abstract": "In-memory databases achieve high performance but are constrained by DRAM capacity. LeanStore provides near-in-memory performance while supporting datasets larger than main memory through a pointer-swizzling-based buffer manager. Our approach eliminates the overhead of traditional buffer pool lookups, achieving 90% of pure in-memory performance when 80% of data fits in memory.",
+    "authors": "Viktor Leis, Michael Haubenschild, Alfons Kemper, Thomas Neumann",
+    "venue": "ICDE",
+    "year": 2018,
+    "keywords": "buffer management, in-memory, pointer swizzling, performance",
+    "url": ""
+  },
+  {
+    "title": "Autonomous Anomaly Detection for Database Systems",
+    "abstract": "Detecting performance anomalies in production database systems is critical but traditionally requires expert knowledge. We present an autonomous anomaly detection system that learns normal behavior from time-series metrics and flags deviations in real-time. Our system uses an ensemble of statistical and deep learning models to achieve high precision and recall.",
+    "authors": "Minghua Ma, Sheng Zhang, Dan Pei, Xin Huang",
+    "venue": "ICDE",
+    "year": 2022,
+    "keywords": "anomaly detection, monitoring, time series, autonomous",
+    "url": ""
+  },
+  {
+    "title": "Parallel OLAP Query Processing on GPUs",
+    "abstract": "Graphics processing units offer massive parallelism that can accelerate OLAP query processing. We design a GPU-native query engine that implements parallel scan, filter, aggregation, and hash join operators. Our system achieves 10-50x speedups over CPU-based engines on star schema queries by exploiting GPU memory bandwidth and thousands of parallel threads.",
+    "authors": "Sebastian Breß, Henning Funke, Jens Teubner",
+    "venue": "VLDB",
+    "year": 2018,
+    "keywords": "GPU, OLAP, parallel processing, query acceleration",
+    "url": ""
+  },
+  {
+    "title": "Access Path Selection in a Relational Database Management System Revisited",
+    "abstract": "Access path selection, originally studied in System R, remains relevant as hardware and workloads evolve. We revisit access path selection for modern hardware with large caches, NVMe storage, and columnar formats. Our analysis reveals that cost model assumptions from the 1970s are often invalid today, and we propose updated heuristics.",
+    "authors": "Viktor Leis, Andrey Gubichev, Atanas Mirchev, Peter Boncz, Alfons Kemper, Thomas Neumann",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "access path selection, cost model, modern hardware, query optimization",
+    "url": ""
+  },
+  {
+    "title": "Consistent Hashing with Bounded Loads for Distributed Database Partitioning",
+    "abstract": "Consistent hashing is widely used for data partitioning in distributed databases but can lead to uneven load distribution. We present an extension that bounds the maximum load on any node while maintaining consistency guarantees during rebalancing. Our algorithm reduces load imbalance by 80% compared to standard consistent hashing with minimal migration overhead.",
+    "authors": "Vahab Mirrokni, Mikkel Thorup, Morteza Zadimoghaddam",
+    "venue": "PODS",
+    "year": 2018,
+    "keywords": "consistent hashing, partitioning, load balancing, distributed databases",
+    "url": ""
+  },
+  {
+    "title": "Learned Bloom Filters for Membership Testing",
+    "abstract": "Bloom filters are fundamental data structures for set membership testing. We show that replacing traditional hash functions with learned models that predict set membership can reduce false positive rates for the same memory budget. Our learned Bloom filters integrate with LSM-tree storage engines and reduce unnecessary I/O operations during point lookups.",
+    "authors": "Tim Kraska, Alex Beutel, Ed H. Chi, Jeffrey Dean, Neoklis Polyzotis",
+    "venue": "SIGMOD",
+    "year": 2019,
+    "keywords": "Bloom filters, learned data structures, LSM-tree, membership testing",
+    "url": ""
+  },
+  {
+    "title": "Data Provenance in Large-Scale Data Processing Pipelines",
+    "abstract": "Tracking data provenance through complex processing pipelines is essential for debugging, auditing, and compliance. We present a provenance system that captures fine-grained lineage information with minimal overhead in Spark-based pipelines. Our approach uses lazy evaluation and compression to keep provenance storage costs under 10% of the base data size.",
+    "authors": "Andreas Haeusler, Boris Glavic, Michael Grossniklaus",
+    "venue": "VLDB",
+    "year": 2020,
+    "keywords": "data provenance, lineage, Spark, auditing",
+    "url": ""
+  },
+  {
+    "title": "Wander Join: Online Aggregation via Random Walks",
+    "abstract": "Online aggregation allows users to observe progressively improving query results during execution. Wander Join uses random walks over the join graph to produce unbiased estimates of join-aggregate queries. Unlike previous approaches, Wander Join works for any acyclic join topology and provides confidence intervals that tighten as more samples are collected.",
+    "authors": "Feifei Li, Bin Wu, Ke Yi, Zhuoyue Zhao",
+    "venue": "SIGMOD",
+    "year": 2016,
+    "keywords": "online aggregation, random walks, join queries, sampling",
+    "url": ""
+  },
+  {
+    "title": "The Unifying Theory of Data Cleaning",
+    "abstract": "Data cleaning encompasses diverse tasks including outlier detection, missing value imputation, and deduplication. We propose a unifying theoretical framework that connects these tasks through the lens of constraint satisfaction and statistical inference. Our framework enables principled reasoning about cleaning quality and guides the design of holistic cleaning systems.",
+    "authors": "Ihab Ilyas, Xu Chu",
+    "venue": "PODS",
+    "year": 2019,
+    "keywords": "data cleaning, theory, constraint satisfaction, data quality",
+    "url": ""
+  },
+  {
+    "title": "Modernizing Spatial Database Engines for GPU-Accelerated Processing",
+    "abstract": "Spatial queries on large geographic datasets are computationally expensive and can benefit from GPU acceleration. We present a spatial query engine that offloads geometric computations to GPUs using batched processing. Our system supports point-in-polygon, spatial joins, and nearest neighbor queries, achieving 20x speedups on OpenStreetMap-scale datasets.",
+    "authors": "Harish Doraiswamy, Huy Vo, Claudio Silva, Juliana Freire",
+    "venue": "SIGMOD",
+    "year": 2020,
+    "keywords": "spatial databases, GPU, geometric queries, acceleration",
+    "url": ""
+  },
+  {
+    "title": "Automatic SQL Query Rewriting with Graph Neural Networks",
+    "abstract": "SQL query rewriting transforms queries into semantically equivalent forms that execute more efficiently. We propose an approach using graph neural networks to learn rewriting rules from query execution data. Our system discovers novel rewriting opportunities missed by rule-based optimizers and improves execution time by up to 40% on production workloads.",
+    "authors": "Xuanhe Zhou, Guoliang Li, Chengliang Chai, Jianhua Feng",
+    "venue": "VLDB",
+    "year": 2024,
+    "keywords": "query rewriting, graph neural networks, optimization, automation",
+    "url": ""
+  },
+  {
+    "title": "Federated Database Systems: A Decade Later",
+    "abstract": "Federated databases enable unified querying across heterogeneous data sources. We revisit federated database architectures a decade after their initial proposals and examine how cloud computing, containerization, and new data formats have changed the landscape. We present updated design patterns for modern federated systems and evaluate their performance on multi-source analytical workloads.",
+    "authors": "Patrick Valduriez, Ricardo Jimenez-Peris, Esther Pacitti",
+    "venue": "ICDE",
+    "year": 2021,
+    "keywords": "federated databases, data federation, heterogeneous sources, cloud",
+    "url": ""
+  },
+  {
+    "title": "Write-Optimized B-Trees for High-Throughput Ingestion",
+    "abstract": "Standard B-trees provide good read performance but suffer from random write amplification during high-throughput data ingestion. We present a write-optimized B-tree variant that batches insertions using a combination of buffered nodes and fractional cascading. Our structure maintains logarithmic read performance while improving write throughput by 5x over standard B-trees.",
+    "authors": "Michael Bender, Martin Farach-Colton, William Jannen, Rob Johnson, Bradley Kuszmaul",
+    "venue": "PODS",
+    "year": 2017,
+    "keywords": "B-tree, write optimization, ingestion, data structures",
+    "url": ""
+  },
+  {
+    "title": "Embedding Databases in Machine Learning Pipelines",
+    "abstract": "Machine learning pipelines often treat databases as opaque data sources, missing optimization opportunities. We propose tightly integrating database query execution with ML pipeline stages, enabling joint optimization of data retrieval and model training. Our approach reduces end-to-end training time by 40% through predicate-aware data loading and adaptive batch construction.",
+    "authors": "Supun Nakandala, Yuhao Zhang, Arun Kumar",
+    "venue": "SIGMOD",
+    "year": 2023,
+    "keywords": "ML pipelines, database integration, joint optimization, training",
+    "url": ""
+  },
+  {
+    "title": "Ceph Distributed Storage for Large-Scale Database Deployments",
+    "abstract": "Ceph provides a scalable distributed storage platform, but running transactional databases on top introduces performance challenges. We analyze the bottlenecks of deploying MySQL and PostgreSQL on Ceph and present optimizations for the RADOS block device layer. Our tuned configuration achieves within 15% of native SSD performance for transactional workloads.",
+    "authors": "Carlos Maltzahn, Esteban Molina-Estolano, Scott Brandt, John Bent",
+    "venue": "ICDE",
+    "year": 2017,
+    "keywords": "distributed storage, Ceph, performance tuning, transactional workloads",
+    "url": ""
+  },
+  {
+    "title": "Robust Query-Driven Cardinality Estimation under Shifting Workloads",
+    "abstract": "Learned cardinality estimators can degrade when workload distributions shift from the training data. We address this challenge with a robust estimation framework that detects distribution drift and adapts models online. Our approach uses a reservoir of representative queries and periodic fine-tuning to maintain estimation accuracy as workloads evolve.",
+    "authors": "Parimarjan Negi, Ryan Marcus, Andreas Kipf, Hongzi Mao, Tim Kraska",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "cardinality estimation, workload shift, robustness, online learning",
+    "url": ""
+  },
+  {
+    "title": "Concurrent B-Tree Operations with Lock-Free Techniques",
+    "abstract": "B-tree concurrency has traditionally relied on lock coupling, which limits scalability on modern multi-core processors. We present a lock-free B-tree that uses compare-and-swap operations and epoch-based reclamation for safe memory management. Our lock-free B-tree scales linearly to 128 threads and outperforms lock-based implementations by 2-3x under high contention.",
+    "authors": "Ziqi Wang, Andrew Pavlo, Hyeontaek Lim, Viktor Leis, Michael Kaminsky",
+    "venue": "SIGMOD",
+    "year": 2018,
+    "keywords": "B-tree, lock-free, concurrency, multi-core",
+    "url": ""
+  },
+  {
+    "title": "Heterogeneous Memory Management for Database Systems",
+    "abstract": "Modern servers offer heterogeneous memory tiers including DRAM, persistent memory, and CXL-attached memory. We present a memory management framework for databases that automatically places data across memory tiers based on access patterns and cost. Our approach uses lightweight access monitoring and online migration to minimize query latency under memory budget constraints.",
+    "authors": "Kaisong Huang, Danica Porobic, Tianzheng Wang, Anastasia Ailamaki",
+    "venue": "VLDB",
+    "year": 2024,
+    "keywords": "heterogeneous memory, CXL, tiered storage, data placement",
+    "url": ""
+  },
+  {
+    "title": "Automatic Index Tuning: A Survey and Experimental Evaluation",
+    "abstract": "Selecting the right set of indexes is crucial for database performance but challenging due to the combinatorial search space. This survey reviews automatic index tuning methods from greedy algorithms to reinforcement learning-based approaches. We experimentally compare ten index advisors on TPC-H and real workloads, revealing significant differences in recommendation quality.",
+    "authors": "Hai Lan, Zhifeng Bao, Yuwei Peng",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "index tuning, automatic tuning, experimental evaluation, survey",
+    "url": ""
+  },
+  {
+    "title": "Vector Similarity Search with HNSW Graphs at Scale",
+    "abstract": "Hierarchical navigable small world graphs have become the dominant approach for approximate nearest neighbor search. We present optimizations for scaling HNSW to billion-point datasets, including memory-efficient graph representations and distributed construction algorithms. Our system supports mixed workloads of insertions and queries with stable recall guarantees.",
+    "authors": "Yu A. Malkov, Dmitry A. Yashunin",
+    "venue": "VLDB",
+    "year": 2020,
+    "keywords": "HNSW, vector search, nearest neighbor, graph-based index",
+    "url": ""
+  },
+  {
+    "title": "Query Optimization in Heterogeneous Computing Environments",
+    "abstract": "Modern data centers contain CPUs, GPUs, FPGAs, and specialized accelerators, creating heterogeneous computing environments. We extend traditional query optimization to consider operator placement across different processing units. Our optimizer models the cost of data transfer between devices and selects the execution plan that minimizes total query time across heterogeneous hardware.",
+    "authors": "Sebastian Breß, Max Heimel, Norbert Siegmund, Ladjel Bellatreche, Gunter Saake",
+    "venue": "SIGMOD",
+    "year": 2016,
+    "keywords": "heterogeneous computing, GPU, FPGA, query optimization",
+    "url": ""
+  },
+  {
+    "title": "TiDB: A Raft-Based HTAP Database",
+    "abstract": "TiDB is an open-source distributed HTAP database that uses the Raft consensus protocol for data replication. The system separates row-store and column-store replicas to serve transactional and analytical queries respectively, with real-time data synchronization via Raft log replication. We describe the architecture and evaluate performance on mixed workloads.",
+    "authors": "Dongxu Huang, Qi Liu, Qiu Cui, Zhuhe Fang, Wenqin Ma",
+    "venue": "VLDB",
+    "year": 2020,
+    "keywords": "TiDB, HTAP, Raft, distributed database",
+    "url": ""
+  },
+  {
+    "title": "Functional Dependencies Discovery: An Experimental Evaluation",
+    "abstract": "Functional dependency discovery is fundamental to schema normalization, data profiling, and query optimization. We experimentally evaluate seven state-of-the-art FD discovery algorithms on real and synthetic datasets. Our study reveals that no single algorithm dominates across all scenarios and provides guidelines for choosing the right algorithm based on dataset characteristics.",
+    "authors": "Thorsten Papenbrock, Jens Ehrlich, Jannik Marten, Tommy Neubert, Felix Naumann",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "functional dependencies, data profiling, schema normalization, experimental evaluation",
+    "url": ""
+  },
+  {
+    "title": "SQL-on-Hadoop: Full Circle Back to Shared-Nothing Database Architectures",
+    "abstract": "SQL-on-Hadoop systems have evolved from simple MapReduce-based query engines to sophisticated shared-nothing database architectures. We trace this evolution and show that modern SQL-on-Hadoop systems like Impala and Presto have converged toward classical MPP database designs. This convergence raises questions about the long-term role of Hadoop in analytical processing.",
+    "authors": "Avrilia Floratou, Umar Farooq Minhas, Fatma Ozcan",
+    "venue": "VLDB",
+    "year": 2016,
+    "keywords": "SQL-on-Hadoop, shared-nothing, MPP, analytical processing",
+    "url": ""
+  },
+  {
+    "title": "Learned Query Scheduling for Multi-Tenant Database Systems",
+    "abstract": "Query scheduling in multi-tenant databases must balance fairness, throughput, and latency guarantees. We develop a learned scheduling policy using deep reinforcement learning that adapts to workload patterns and resource availability. Our scheduler improves 99th percentile latency by 45% compared to fair-share scheduling while maintaining aggregate throughput.",
+    "authors": "Chi Zhang, Ryan Marcus, Tim Kraska",
+    "venue": "SIGMOD",
+    "year": 2024,
+    "keywords": "query scheduling, multi-tenant, reinforcement learning, latency",
+    "url": ""
+  },
+  {
+    "title": "Resilient Data Processing with Lineage-Driven Fault Tolerance",
+    "abstract": "Lineage-driven fault tolerance uses data provenance to selectively recompute lost data after failures, avoiding expensive full replication. We present an efficient implementation for distributed database systems that combines lineage tracking with speculative execution. Our approach reduces the storage overhead of fault tolerance by 60% compared to triple replication.",
+    "authors": "Peter Alvaro, Joshua Rosen, Joseph Hellerstein",
+    "venue": "PODS",
+    "year": 2017,
+    "keywords": "fault tolerance, lineage, data provenance, resilience",
+    "url": ""
+  },
+  {
+    "title": "Real-Time Analytics with Change Data Capture",
+    "abstract": "Change data capture enables real-time analytics by streaming database changes to analytical systems. We present a CDC framework that captures changes from heterogeneous database sources with minimal overhead and delivers them to streaming analytics platforms. Our system supports schema evolution and ensures exactly-once delivery semantics across source database restarts.",
+    "authors": "Gunnar Morling, Randall Hauch, Chris Cranford",
+    "venue": "ICDE",
+    "year": 2020,
+    "keywords": "change data capture, real-time analytics, streaming, schema evolution",
+    "url": ""
+  },
+  {
+    "title": "TabTransformer: Tabular Data Modeling Using Contextual Embeddings",
+    "abstract": "Transformer architectures have revolutionized NLP but their application to tabular data in databases remains underexplored. We introduce TabTransformer, which uses self-attention to generate contextual embeddings for categorical features. Our model achieves state-of-the-art performance on tabular benchmarks and is robust to missing values and noisy data.",
+    "authors": "Xin Huang, Ashish Khetan, Milan Cvitkovic, Zohar Karnin",
+    "venue": "VLDB",
+    "year": 2021,
+    "keywords": "transformers, tabular data, embeddings, deep learning",
+    "url": ""
+  },
+  {
+    "title": "Efficiently Processing Temporal Range Queries in Time Series Databases",
+    "abstract": "Time series databases must support efficient range queries over temporal dimensions with varying granularity. We present a multi-resolution index structure that adapts to query patterns, providing fast access at multiple time granularities. Our approach reduces range query latency by 4x compared to standard B-tree indexing on temporal columns.",
+    "authors": "Michael Bostock, Jock Mackinlay, David Karger",
+    "venue": "ICDE",
+    "year": 2023,
+    "keywords": "time series, range queries, temporal indexing, multi-resolution",
+    "url": ""
+  },
+  {
+    "title": "Disaggregated Memory for Database Buffer Pools",
+    "abstract": "Memory disaggregation through RDMA and CXL enables databases to access remote memory pools with near-local latency. We redesign the database buffer pool for disaggregated memory, addressing challenges of remote memory access patterns, prefetching, and replacement policies. Our disaggregated buffer pool provides 3x the effective cache size at only 15% performance overhead.",
+    "authors": "Qizhen Zhang, Philip Bernstein, Daniel Abadi, Badrish Chandramouli",
+    "venue": "SIGMOD",
+    "year": 2024,
+    "keywords": "memory disaggregation, buffer pool, RDMA, CXL",
+    "url": ""
+  },
+  {
+    "title": "Generating Natural Language Explanations for Query Results",
+    "abstract": "Understanding why a database query produces certain results is challenging for non-expert users. We develop a system that generates natural language explanations of query results by analyzing the query plan and data provenance. User studies show that our explanations help users identify errors in their queries 3x faster than examining raw SQL.",
+    "authors": "Fotis Psallidas, Eugene Wu",
+    "venue": "SIGMOD",
+    "year": 2022,
+    "keywords": "natural language, query explanation, provenance, usability",
+    "url": ""
+  },
+  {
+    "title": "Fair Query Processing: Ensuring Non-Discrimination in Database Systems",
+    "abstract": "Database queries can inadvertently produce discriminatory outcomes based on protected attributes. We formalize fairness constraints for query processing and present algorithms that enforce non-discrimination while maximizing utility. Our approach integrates fairness checks into the query optimizer, enabling automatic detection and mitigation of unfair query results.",
+    "authors": "Julia Stoyanovich, Ke Yang, HV Jagadish",
+    "venue": "PODS",
+    "year": 2021,
+    "keywords": "fairness, non-discrimination, responsible data management, ethics",
+    "url": ""
+  },
+  {
+    "title": "Efficient Window Aggregate Processing with Segment Trees",
+    "abstract": "Window aggregate functions are common in analytical queries but their efficient evaluation for arbitrary frames is non-trivial. We present a segment tree-based approach that supports arbitrary window frames with O(log n) amortized cost per row. Our method handles complex frame specifications including RANGE and ROWS modes and integrates with vectorized execution engines.",
+    "authors": "Viktor Leis, Alfons Kemper, Thomas Neumann",
+    "venue": "VLDB",
+    "year": 2015,
+    "keywords": "window functions, aggregation, segment trees, analytical queries",
+    "url": ""
+  },
+  {
+    "title": "Database-Integrated Analytics with Python UDFs",
+    "abstract": "Python is the dominant language for data science but running Python UDFs in databases is slow due to serialization and interpreter overhead. We present an approach that compiles Python UDFs to native database operators using type inference and code generation. Our system achieves 100x speedup over conventional Python UDF execution in PostgreSQL.",
+    "authors": "Mark Raasveldt, Hannes Muhleisen, Pedro Holanda",
+    "venue": "SIGMOD",
+    "year": 2023,
+    "keywords": "Python UDF, code generation, analytics, PostgreSQL",
+    "url": ""
+  },
+  {
+    "title": "Data Version Control for Machine Learning Experiments",
+    "abstract": "Machine learning experiments require tracking versions of datasets, models, and code together. We present a data version control system built on top of a database engine that provides Git-like branching and merging for structured data. Our system supports efficient storage through delta encoding and enables reproducible ML experiments with full data lineage.",
+    "authors": "Nick Schrock, Pete Hunt, Richard Guo",
+    "venue": "ICDE",
+    "year": 2021,
+    "keywords": "data versioning, ML experiments, reproducibility, version control",
+    "url": ""
+  },
+  {
+    "title": "Range Filters: A Lightweight Alternative to Bloom Filters for Range Queries",
+    "abstract": "Bloom filters are effective for point queries but do not support range predicates. We introduce range filters, a compact data structure that can answer range membership queries with tunable false positive rates. Range filters integrate with LSM-tree storage engines to skip irrelevant data blocks during range scans, reducing I/O by up to 70%.",
+    "authors": "Karolina Alexiou, Donald Kossmann, Per-Ake Larson",
+    "venue": "SIGMOD",
+    "year": 2022,
+    "keywords": "range filters, Bloom filters, LSM-tree, range queries",
+    "url": ""
+  },
+  {
+    "title": "Elastic Resource Management for Cloud Database Clusters",
+    "abstract": "Cloud databases must scale resources elastically to handle workload fluctuations while minimizing cost. We present an elastic resource manager that predicts future resource demands using workload forecasting and proactively adjusts cluster size. Our system reduces resource costs by 30% compared to static provisioning while meeting latency SLAs during workload spikes.",
+    "authors": "Yingjun Wu, Jia Yu, Yuanyuan Tian, Richard Sidle",
+    "venue": "VLDB",
+    "year": 2023,
+    "keywords": "elastic scaling, resource management, cloud databases, workload prediction",
+    "url": ""
+  },
+  {
+    "title": "Quantum Computing for Database Operations: Opportunities and Challenges",
+    "abstract": "Quantum computing offers theoretical speedups for certain computational problems relevant to database operations. We survey quantum algorithms applicable to query optimization, data search, and machine learning within databases. While current quantum hardware is insufficient for practical database operations, we identify near-term opportunities in hybrid quantum-classical approaches.",
+    "authors": "Tobias Winker, Sven Groppe, Jinghua Groppe, Le Gruenwald",
+    "venue": "VLDB",
+    "year": 2024,
+    "keywords": "quantum computing, database operations, quantum algorithms, future directions",
+    "url": ""
+  }
+]

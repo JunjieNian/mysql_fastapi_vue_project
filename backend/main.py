@@ -185,3 +185,150 @@ async def chat(
         ]
     })
     return schemas.ChatResponse(response=resp.json()['choices'][0]['message']['content'])
+
+
+# ---- Paper endpoints ----
+
+ALGO_URL = "http://localhost:8001"
+
+
+@app.get("/papers/", response_model=schemas.PaperList)
+async def list_papers(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        db: SessionDep,
+        skip: int = 0,
+        limit: int = 20,
+):
+    papers = crud.get_papers(db, skip=skip, limit=limit)
+    total = crud.count_papers(db)
+    return schemas.PaperList(total=total, papers=papers)
+
+
+@app.post("/papers/bulk", response_model=schemas.PaperList)
+async def bulk_create_papers(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        papers: list[schemas.PaperCreate],
+        db: SessionDep,
+):
+    db_papers = crud.create_papers_bulk(db, papers)
+    return schemas.PaperList(total=len(db_papers), papers=db_papers)
+
+
+@app.get("/papers/{paper_id}", response_model=schemas.Paper)
+async def get_paper(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        paper_id: int,
+        db: SessionDep,
+):
+    paper = crud.get_paper(db, paper_id)
+    if not paper:
+        raise HTTPException(status_code=404, detail="Paper not found")
+    return paper
+
+
+@app.post("/search", response_model=schemas.SearchResponse)
+async def search_papers(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        search_req: schemas.SearchRequest,
+        db: SessionDep,
+):
+    # 保存搜索历史
+    crud.create_search_history(db, user_id=current_user.id, query=search_req.query)
+
+    # 调用算法层搜索
+    try:
+        algo_resp = requests.post(f"{ALGO_URL}/search", json={
+            "query": search_req.query,
+            "top_k": search_req.page * search_req.page_size,
+        }, timeout=30)
+        algo_resp.raise_for_status()
+        algo_results = algo_resp.json().get("results", [])
+    except Exception:
+        # 算法层不可用时降级为 SQL 模糊搜索
+        total, papers = crud.search_papers_by_keyword(
+            db, search_req.query,
+            skip=(search_req.page - 1) * search_req.page_size,
+            limit=search_req.page_size,
+        )
+        brief_papers = [
+            schemas.PaperBrief.model_validate(p) for p in papers
+        ]
+        return schemas.SearchResponse(total=total, papers=brief_papers)
+
+    # 从 MySQL 获取完整论文信息
+    paper_ids = [r["paper_id"] for r in algo_results]
+    if not paper_ids:
+        return schemas.SearchResponse(total=0, papers=[])
+
+    db_papers = crud.get_papers_by_ids(db, paper_ids)
+    paper_map = {p.id: p for p in db_papers}
+
+    # 按算法层排序保持顺序，分页
+    start = (search_req.page - 1) * search_req.page_size
+    end = start + search_req.page_size
+    paged_ids = paper_ids[start:end]
+
+    brief_papers = []
+    for pid in paged_ids:
+        if pid in paper_map:
+            brief_papers.append(schemas.PaperBrief.model_validate(paper_map[pid]))
+
+    return schemas.SearchResponse(total=len(paper_ids), papers=brief_papers)
+
+
+@app.post("/click")
+async def record_click(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        click_req: schemas.ClickRequest,
+        db: SessionDep,
+):
+    paper = crud.get_paper(db, click_req.paper_id)
+    if not paper:
+        raise HTTPException(status_code=404, detail="Paper not found")
+    crud.create_user_click(db, user_id=current_user.id, paper_id=click_req.paper_id)
+    return {"status": "ok"}
+
+
+@app.get("/recommend", response_model=schemas.RecommendResponse)
+async def get_recommendations(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        db: SessionDep,
+):
+    # 获取用户点击历史
+    clicked_ids = crud.get_clicked_paper_ids(db, user_id=current_user.id)
+    if not clicked_ids:
+        return schemas.RecommendResponse(papers=[])
+
+    # 调用算法层推荐
+    try:
+        algo_resp = requests.post(f"{ALGO_URL}/recommend", json={
+            "clicked_paper_ids": clicked_ids,
+            "top_k": 10,
+        }, timeout=30)
+        algo_resp.raise_for_status()
+        recommended_ids = algo_resp.json().get("paper_ids", [])
+    except Exception:
+        return schemas.RecommendResponse(papers=[])
+
+    if not recommended_ids:
+        return schemas.RecommendResponse(papers=[])
+
+    # 从 MySQL 获取完整信息
+    db_papers = crud.get_papers_by_ids(db, recommended_ids)
+    paper_map = {p.id: p for p in db_papers}
+
+    papers = []
+    for pid in recommended_ids:
+        if pid in paper_map:
+            papers.append(schemas.PaperBrief.model_validate(paper_map[pid]))
+
+    return schemas.RecommendResponse(papers=papers)
+
+
+@app.get("/search/history", response_model=schemas.SearchHistoryList)
+async def get_search_history(
+        current_user: Annotated[schemas.User, Depends(get_current_active_user)],
+        db: SessionDep,
+):
+    history = crud.get_search_history(db, user_id=current_user.id)
+    return schemas.SearchHistoryList(items=history)

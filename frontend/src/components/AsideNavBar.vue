@@ -3,7 +3,9 @@ import {
   ChatDotRound,
   Document,
   Menu as IconMenu,
+  Search,
   Setting,
+  Star,
 } from '@element-plus/icons-vue'
 import {useRouter} from 'vue-router'
 const router = useRouter()
@@ -24,6 +26,18 @@ function change(key: string, keyPath: string[]) {
         <icon-menu/>
       </el-icon>
       <span>个人信息</span>
+    </el-menu-item>
+    <el-menu-item index="/index/paperSearch">
+      <el-icon>
+        <Search/>
+      </el-icon>
+      <span>论文搜索</span>
+    </el-menu-item>
+    <el-menu-item index="/index/paperRecommend">
+      <el-icon>
+        <Star/>
+      </el-icon>
+      <span>论文推荐</span>
     </el-menu-item>
     <el-menu-item index="/index/checkUserInfo">
       <el-icon>
