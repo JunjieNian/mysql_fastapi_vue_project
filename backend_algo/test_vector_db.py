@@ -1,10 +1,11 @@
 import chromadb
 import chromadb.utils.embedding_functions as embedding_functions
+from config import DASHSCOPE_BASE_URL, DASHSCOPE_API_KEY, EMBEDDING_MODEL
 
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
-    api_key="API_KEY_IS_NOT_NEEDED",
-    api_base="http://10.176.64.152:11435/v1",
-    model_name="bge-m3"
+    api_key=DASHSCOPE_API_KEY,
+    api_base=DASHSCOPE_BASE_URL,
+    model_name=EMBEDDING_MODEL,
 )
 
 # 注意：需要先启动向量数据库，参考README.md

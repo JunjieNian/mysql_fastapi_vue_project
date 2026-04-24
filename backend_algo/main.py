@@ -5,26 +5,27 @@ import requests
 import numpy as np
 import vector_store
 import reranker
+from config import DASHSCOPE_BASE_URL, DASHSCOPE_API_KEY, LLM_MODEL
 
 
 app = FastAPI()
 
 
-URL = 'http://10.176.64.152:11434/v1'
-
-MODEL = 'qwen2.5:7b'
-
+HEADERS = {
+    "Authorization": f"Bearer {DASHSCOPE_API_KEY}",
+    "Content-Type": "application/json",
+}
 
 
 @app.post("/chat/stream/")
 async def chat_stream(conversation: schemas.Conversation):
 
     def generator():
-        with requests.post(f'{URL}/chat/completions', json={
-            'model': MODEL,
+        with requests.post(f'{DASHSCOPE_BASE_URL}/chat/completions', json={
+            'model': LLM_MODEL,
             'stream': True,
             'messages': [m.model_dump() for m in conversation.messages],
-        }, stream=True, timeout=60) as resp:
+        }, headers=HEADERS, stream=True, timeout=60) as resp:
             for raw_line in resp.iter_lines():
                 line = raw_line.decode('utf-8').strip()
                 if line == '':
@@ -45,11 +46,11 @@ async def chat_stream(conversation: schemas.Conversation):
 
 @app.post("/chat/", response_model=schemas.ConversationResponse)
 async def chat(conversation: schemas.Conversation):
-    resp = requests.post(f'{URL}/chat/completions', json={
-        'model': MODEL,
+    resp = requests.post(f'{DASHSCOPE_BASE_URL}/chat/completions', json={
+        'model': LLM_MODEL,
         'stream': False,
         'messages': [m.model_dump() for m in conversation.messages],
-    }, stream=False, timeout=60)
+    }, headers=HEADERS, timeout=60)
     return resp.json()
 
 

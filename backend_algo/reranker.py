@@ -1,7 +1,7 @@
 import requests
+from config import DASHSCOPE_BASE_URL, DASHSCOPE_API_KEY, RERANK_MODEL
 
-RERANK_URL = "http://10.176.64.152:11436/v1/rerank"
-RERANK_MODEL = "bge-reranker-v2-m3"
+RERANK_URL = f"{DASHSCOPE_BASE_URL}/rerank"
 
 
 def rerank(query: str, documents: list[str], top_n: int = 10):
@@ -13,6 +13,9 @@ def rerank(query: str, documents: list[str], top_n: int = 10):
         "query": query,
         "documents": documents,
         "top_n": top_n,
+    }, headers={
+        "Authorization": f"Bearer {DASHSCOPE_API_KEY}",
+        "Content-Type": "application/json",
     }, timeout=30)
     response.raise_for_status()
     data = response.json()

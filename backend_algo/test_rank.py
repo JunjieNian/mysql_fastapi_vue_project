@@ -1,12 +1,11 @@
 import requests
 import json
+from config import DASHSCOPE_BASE_URL, DASHSCOPE_API_KEY, RERANK_MODEL
 
-URL = "http://10.176.64.152:11436/v1/rerank"
-
-MODEL = "bge-reranker-v2-m3"
+URL = f"{DASHSCOPE_BASE_URL}/rerank"
 
 response = requests.post(URL, json={
-    "model": MODEL,
+    "model": RERANK_MODEL,
     "query": "What is the capital of France?",
     "documents": [
         "The capital of Brazil is Brasilia.",
@@ -14,6 +13,9 @@ response = requests.post(URL, json={
         "Horses and cows are both animals",
     ],
     "top_n": 2,
+}, headers={
+    "Authorization": f"Bearer {DASHSCOPE_API_KEY}",
+    "Content-Type": "application/json",
 })  # 从documents中查找与query最相关的top_n条文本
 
 if response.status_code == 200:

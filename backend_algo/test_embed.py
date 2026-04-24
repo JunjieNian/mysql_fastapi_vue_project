@@ -1,9 +1,8 @@
 import requests
 import numpy as np
+from config import DASHSCOPE_BASE_URL, DASHSCOPE_API_KEY, EMBEDDING_MODEL
 
-URL = "http://10.176.64.152:11435/v1/embeddings"
-
-MODEL = "bge-m3"
+URL = f"{DASHSCOPE_BASE_URL}/embeddings"
 
 sentences = [
     "What is the capital of France?",
@@ -13,8 +12,11 @@ sentences = [
 ]
 
 response = requests.post(URL, json={
-    "model": MODEL,
+    "model": EMBEDDING_MODEL,
     "input": sentences,
+}, headers={
+    "Authorization": f"Bearer {DASHSCOPE_API_KEY}",
+    "Content-Type": "application/json",
 }).json()  # 将input中的每条文本转换为向量
 
 for data in response["data"]:
